@@ -1,0 +1,21 @@
+.root{
+	padding: 50px;
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+}
+
+.title{
+	font-size: 50px;
+	font-weight: 700;
+}
+
+.link {
+	font-size: 25px;
+	font-weight: 500;
+}
+.list {
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+}
