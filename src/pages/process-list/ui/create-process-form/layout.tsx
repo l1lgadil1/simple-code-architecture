@@ -9,6 +9,7 @@ export function Layout({onSubmit}:IProps) {
     const formData = new FormData(e.currentTarget)
     const name = formData.get('name') as string;
     onSubmit(name)
+    name.value = ""
   }
     return (
       <form className={styles.root} onSubmit={handleSubmit}>

@@ -5,7 +5,7 @@ import { ProcessCard } from './ui/process-card';
 import { Root } from './ui/root'
 
 export function Page(){
-    const { processes,createProcess } = useProcessList();
+    const { processes,createProcess,isLoading } = useProcessList();
     return (
         <div className={styles.root}>
             <Root

@@ -1,5 +1,6 @@
 
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
+import { processApi } from '../api'
 
 export type ProcessListItem = {
     id: string
@@ -8,17 +9,21 @@ export type ProcessListItem = {
 
 export function useProcessList() {
     const [processes, setProcesses] = useState<ProcessListItem[]>([])
+    const [isLoading,setLoading] = useState(false);
+    const fetchList = async () => {
+        setLoading(true)
+        await processApi.list().then(setProcesses).finally(()=>setLoading(false))
+    }
+    useEffect(()=>{
+        fetchList()
+    },[])
 
-    const createProcess = (name: string) => {
-        const newProcess = {
-            id: String(new Date().toISOString),
-            name
-        }
-        setProcesses([...processes, newProcess])
+    const createProcess = async (name: string) => {
+        await processApi.create(name).then(()=>fetchList())
     }
 
-    const deleteProcess = (id: string) => {
-        setProcesses(processes.filter(process => process.id !== id))
+    const deleteProcess = async (id: string) => {
+        await processApi.delete(id).then(()=>fetchList())
     }
 
     const list = processes.map(i=>({...i,onDelete:()=>deleteProcess(i.id)}))
