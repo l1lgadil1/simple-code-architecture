@@ -11,6 +11,7 @@ export default tseslint.config(
             js.configs.recommended,
             ...tseslint.configs.recommended,
             ...tseslint.configs.strictTypeChecked,
+            ...tseslint.configs.stylistic,
         ],
         files: ['**/*.{ts,tsx}'],
         languageOptions: {
@@ -38,6 +39,25 @@ export default tseslint.config(
             '@typescript-eslint/explicit-function-return-type': 'off',
             '@typescript-eslint/explicit-module-boundary-types': 'off',
             '@typescript-eslint/no-unused-vars': ['warn', { argsIgnorePattern: '^_' }],
+            'indent': ['error', 2],
+            'linebreak-style': ['error', 'unix'],
+            'quotes': ['error', 'single'],
+            'semi': ['error', 'always'],
+            'comma-dangle': ['error', 'always-multiline'],
+            'max-len': ['error', { 'code': 100 }],
+            'no-multiple-empty-lines': ['error', { 'max': 1, 'maxEOF': 0 }],
+            'object-curly-spacing': ['error', 'always'],
+            'array-bracket-spacing': ['error', 'never'],
+            '@typescript-eslint/member-delimiter-style': ['error', {
+                'multiline': {
+                    'delimiter': 'semi',
+                    'requireLast': true
+                },
+                'singleline': {
+                    'delimiter': 'semi',
+                    'requireLast': false
+                }
+            }],
         },
         linterOptions: {
             reportUnusedDisableDirectives: true,
@@ -52,3 +72,4 @@ export default tseslint.config(
         ],
     },
 );
+ 

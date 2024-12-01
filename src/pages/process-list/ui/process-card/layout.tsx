@@ -7,7 +7,7 @@ interface IProps {
   onDelete?: () => void;
 }
 
-export function Layer({ name, onDelete,id }: IProps) {
+export function Layout({ name, onDelete,id }: IProps) {
   return (
     <div className={styles.root}>
       <div className={styles.content}>
