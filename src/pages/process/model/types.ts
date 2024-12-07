@@ -1,27 +1,12 @@
+import { Block } from "../../../modules/manage-block/blocks-flow/model/types";
+
 export type Process = {
   id: string;
   name: string;
   blocks: Block[];  
 };
-export type Block = {
-  id: string;
-  name: string;
-  type: string;
 
+export type BlockPosition = {
   x: number;
-  y: number;
-
-  inputs: Dependency[];
-  outputs: Dependency[];  
-};
-
-export type Dependency = {
-  id: string;
-  
-  outputId:string;
-  outputPort:string;
-  
-  inputId:string;
-  inputPort:string;
-
-};  
+  y: number;  
+}
